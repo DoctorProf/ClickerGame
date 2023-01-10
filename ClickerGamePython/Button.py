@@ -7,7 +7,8 @@ class Button():
         self.buttonColor = (0,255,200)
         self.textColor = textColor
         self.sc = sc
-        self.surf = pygame.Surface((50,50))
+        self.sizeButton = (50,50)
+        self.surf = pygame.Surface((self.sizeButton))
         self.surfRect = self.surf.get_rect()
         self.surfRect.centerx = 100
         self.surfRect.centery = 400

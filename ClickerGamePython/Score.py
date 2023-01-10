@@ -17,7 +17,7 @@ class Score():
         self.ScoreImg = self.font.render(str(self.stats.score), True, self.textColor, self.bgColor)
         self.scoreRect = self.ScoreImg.get_rect()
         self.scoreRect.centerx = self.scRect.centerx
-        self.scoreRect.centery = self.scRect.centery -200
+        self.scoreRect.centery = self.scRect.centery - 200
 
     def showScore(self):
 
