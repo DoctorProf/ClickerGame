@@ -1,19 +1,20 @@
 import pygame
 
-class Button():
+class Button:
 
-    def __init__(self, sc, textButton, textColor):
+    def __init__(self, sc, textButton, textColor, buttonColor, sizeButton, x, y, priceButton):
 
-        self.buttonColor = (0,255,200)
+        self.buttonColor = buttonColor
         self.textColor = textColor
         self.sc = sc
-        self.sizeButton = (50,50)
+        self.sizeButton = sizeButton
         self.surf = pygame.Surface((self.sizeButton))
         self.surfRect = self.surf.get_rect()
-        self.surfRect.centerx = 100
-        self.surfRect.centery = 400
-        self.font = pygame.font.SysFont(None, 24)
+        self.surfRect.x = x
+        self.surfRect.y = y
+        self.font = pygame.font.SysFont(None, 18)
         self.textButton = textButton
+        self.priceButton = priceButton
         
     def showButton(self):
 
@@ -27,3 +28,10 @@ class Button():
         self.textRect.centerx = self.surfRect.centerx
         self.textRect.centery = self.surfRect.centery 
         self.sc.blit(self.textImg, self.textRect)
+
+        self.priceImg = self.font.render(str(self.priceButton), True, self.textColor, self.buttonColor)
+        self.priceRect = self.priceImg.get_rect()
+        self.priceRect.centerx = self.surfRect.centerx
+        self.priceRect.centery = self.surfRect.centery
+        self.priceRect.bottom = self.surfRect.bottom  - 15
+        self.sc.blit(self.priceImg, self.priceRect)
