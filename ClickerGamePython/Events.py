@@ -17,24 +17,23 @@ def event(stats, arrayButton):
                 if (a > arrayButton[1].surfRect.left and a < arrayButton[1].surfRect.right) and (b > arrayButton[1].surfRect.top and b < arrayButton[1].surfRect.bottom ):
                     if arrayButton[1].priceButton > 1000000:
 
-                        arrayButton[1].textUpgButton = 'max'
+                        arrayButton[1].textButton = 'max'
 
                     elif stats.score >= arrayButton[1].priceButton:
 
-                        arrayButton[0].textButton = '+' + str(int(arrayButton[0].textButton) + 1)
+                        arrayButton[0].textButton = '+' + str(int(arrayButton[0].textButton) + int(arrayButton[1].textButton.split()[0]))
                         stats.score -= arrayButton[1].priceButton
-                        arrayButton[1].priceButton = int(arrayButton[1].priceButton * 1.3)
+                        arrayButton[1].priceButton = int(arrayButton[1].priceButton * arrayButton[1].factorButton)
 
                 if (a > arrayButton[2].surfRect.left and a < arrayButton[2].surfRect.right) and (b > arrayButton[2].surfRect.top and b < arrayButton[2].surfRect.bottom):
 
-                    if arrayButton[2].priceButton > 10000:
-                        arrayButton[2].textRunButton = 'max'
+                    if arrayButton[2].priceButton > 1000000:
+                        arrayButton[2].textButton = 'max'
 
                     elif stats.score >= arrayButton[2].priceButton:
-
-                        stats.earnings += 1
+                        stats.earnings += int(arrayButton[2].textButton.split()[0])
                         stats.score -= arrayButton[2].priceButton
-                        arrayButton[2].priceButton = int(arrayButton[2].priceButton * 1.3)
+                        arrayButton[2].priceButton = int(arrayButton[2].priceButton * arrayButton[2].factorButton)
 
 def update(bgColor, sc, score, arrayButton):
 

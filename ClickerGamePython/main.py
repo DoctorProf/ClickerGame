@@ -14,9 +14,9 @@ stats = Stats()
 score = Score(sc, stats, bgColor)
 arrayButton = []
 
-arrayButton.append(Button(sc, '+1', score.textColor, (0,255,200), sizeButton, 100, 400, 0))
-arrayButton.append(Button(sc, '+1 к клику', score.textColor, (0,255,100), sizeButton, 240, 400, 20))
-arrayButton.append(Button(sc, '+1 в сек', score.textColor, (0,255,255), sizeButton, 380, 400, 30))
+arrayButton.append(Button(sc, '+1', score.textColor, (0,255,200), sizeButton, 100, 400, 0, 0))
+arrayButton.append(Button(sc, '+1 к клику', score.textColor, (0,255,100), sizeButton, 240, 400, 25, 1.3))
+arrayButton.append(Button(sc, '+5 в сек', score.textColor, (0,255,255), sizeButton, 380, 400, 40, 1.5))
 
 
 stats.earsec()

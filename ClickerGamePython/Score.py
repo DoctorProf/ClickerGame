@@ -22,7 +22,7 @@ class Score():
 
         self.ear = self.fontEar.render('+' + str(self.stats.earnings), True, self.textColor, self.bgColor)
         self.earRect = self.ear.get_rect()
-        self.earRect.centerx = self.scoreRect.topright[0] + 15
+        self.earRect.centerx = self.scoreRect.topright[0] + 25
         self.earRect.centery = self.scoreRect.topright[1]
 
     def showScore(self):

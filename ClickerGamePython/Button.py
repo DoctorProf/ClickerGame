@@ -2,12 +2,13 @@ import pygame
 
 class Button:
 
-    def __init__(self, sc, textButton, textColor, buttonColor, sizeButton, x, y, priceButton):
+    def __init__(self, sc, textButton, textColor, buttonColor, sizeButton, x, y, priceButton, factorButton):
 
         self.buttonColor = buttonColor
         self.textColor = textColor
         self.sc = sc
         self.sizeButton = sizeButton
+        self.factorButton = factorButton
         self.surf = pygame.Surface((self.sizeButton))
         self.surfRect = self.surf.get_rect()
         self.surfRect.x = x
