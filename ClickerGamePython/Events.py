@@ -1,6 +1,6 @@
 import pygame
 
-def event(button, stats, upgradeButton, runButton):
+def event(stats, arrayButton):
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -10,42 +10,42 @@ def event(button, stats, upgradeButton, runButton):
         if event.type == pygame.MOUSEBUTTONDOWN:
             if event.button == 1:
                 a,b = event.pos[0],event.pos[1]
+                
+                if (a > arrayButton[0].surfRect.left and a < arrayButton[0].surfRect.right) and (b > arrayButton[0].surfRect.top and b < arrayButton[0].surfRect.bottom ):
+                    stats.score += int(arrayButton[0].textButton)
 
-                if (a > button.surfRect.left and a < button.surfRect.right) and (b > button.surfRect.top and b < button.surfRect.bottom ):
-                    stats.score += int(button.textButton)
+                if (a > arrayButton[1].surfRect.left and a < arrayButton[1].surfRect.right) and (b > arrayButton[1].surfRect.top and b < arrayButton[1].surfRect.bottom ):
+                    if arrayButton[1].priceButton > 1000000:
 
-                if (a > upgradeButton.surfRect.left and a < upgradeButton.surfRect.right) and (b > upgradeButton.surfRect.top and b < upgradeButton.surfRect.bottom ):
-                    if upgradeButton.priceButton > 10000:
-                        upgradeButton.textUpgButton = 'max'
+                        arrayButton[1].textUpgButton = 'max'
 
-                    elif stats.score >= upgradeButton.priceButton:
+                    elif stats.score >= arrayButton[1].priceButton:
 
-                        button.textButton = '+' + str(int(button.textButton) + 1)
-                        stats.score -= upgradeButton.priceButton
-                        upgradeButton.priceButton = int(upgradeButton.priceButton * 1.3)
+                        arrayButton[0].textButton = '+' + str(int(arrayButton[0].textButton) + 1)
+                        stats.score -= arrayButton[1].priceButton
+                        arrayButton[1].priceButton = int(arrayButton[1].priceButton * 1.3)
 
-                if (a > runButton.surfRect.left and a < runButton.surfRect.right) and (b > runButton.surfRect.top and b < runButton.surfRect.bottom):
-                    if runButton.priceButton > 10000:
-                        runButton.textRunButton = 'max'
+                if (a > arrayButton[2].surfRect.left and a < arrayButton[2].surfRect.right) and (b > arrayButton[2].surfRect.top and b < arrayButton[2].surfRect.bottom):
 
-                    elif stats.score >= runButton.priceButton:
- 
+                    if arrayButton[2].priceButton > 10000:
+                        arrayButton[2].textRunButton = 'max'
+
+                    elif stats.score >= arrayButton[2].priceButton:
+
                         stats.earnings += 1
-                        stats.score -= runButton.priceButton
-                        runButton.priceButton = int(runButton.priceButton * 1.3)
+                        stats.score -= arrayButton[2].priceButton
+                        arrayButton[2].priceButton = int(arrayButton[2].priceButton * 1.3)
 
-def update(bgColor, sc,stats, score, button, upgradeButton, runButton):
+def update(bgColor, sc, score, arrayButton):
 
     sc.fill(bgColor)
     score.ScoreImage()
     score.showScore()
 
-    button.showButton()
-    upgradeButton.showButton()
-    runButton.showButton()
+    for button in arrayButton:
 
-    button.showTextButton()
-    upgradeButton.showTextButton()
-    runButton.showTextButton()
+        button.showButton()
+
+        button.showTextButton()
 
     pygame.display.update()

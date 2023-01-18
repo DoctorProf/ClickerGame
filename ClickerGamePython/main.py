@@ -12,12 +12,16 @@ bgColor = (255,255,255)
 sizeButton = (70, 70)
 stats = Stats()
 score = Score(sc, stats, bgColor)
-button = Button(sc, '+1', score.textColor, (0,255,200), sizeButton, 100, 400, 0)
-upgradeButton = Button(sc, '+1 к клику', score.textColor, (0,255,100), sizeButton, 240, 400, 20)
-runButton = Button(sc, '+1 в сек', score.textColor, (0,255,255), sizeButton, 380, 400, 30)
+arrayButton = []
+
+arrayButton.append(Button(sc, '+1', score.textColor, (0,255,200), sizeButton, 100, 400, 0))
+arrayButton.append(Button(sc, '+1 к клику', score.textColor, (0,255,100), sizeButton, 240, 400, 20))
+arrayButton.append(Button(sc, '+1 в сек', score.textColor, (0,255,255), sizeButton, 380, 400, 30))
+
+
 stats.earsec()
 
 while True:
 
-    event(button, stats,upgradeButton, runButton)
-    update(bgColor, sc,stats, score, button, upgradeButton, runButton)
+    event(stats, arrayButton)
+    update(bgColor, sc, score, arrayButton)
